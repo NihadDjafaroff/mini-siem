@@ -1,5 +1,7 @@
 # mini-siem
 
+[![CI](https://github.com/NihadDjafaroff/mini-siem/actions/workflows/tests.yml/badge.svg)](https://github.com/NihadDjafaroff/mini-siem/actions/workflows/tests.yml)
+
 A small, standards-aligned SIEM for lab use: it **collects** logs from several sources, **normalizes** them to
 [ECS](https://www.elastic.co/guide/en/ecs/current/index.html), **detects** with Sigma rules (including Sigma
 *correlation* rules, so it can reason across many events), enriches with threat intel / offline GeoIP / login
