@@ -1,0 +1,35 @@
+title: Network Connection
+id: 7c1b2f10-0010-4a11-9b00-000000000010
+name: net_connection
+description: Any connection record (building block for port-scan correlation)
+level: informational
+detection:
+  selection:
+    event.action: network_connection
+  condition: selection
+---
+title: Port Scan
+id: 7c1b2f10-0011-4a11-9b00-000000000011
+name: port_scan
+description: One source touched 20+ distinct destination ports within one minute
+level: medium
+tags: [attack.discovery, attack.t1046]
+correlation:
+  type: value_count
+  rules: [net_connection]
+  group-by: [source.ip]
+  timespan: 1m
+  condition:
+    gte: 20
+    field: destination.port
+---
+title: Port Scan Followed By SSH Brute Force
+id: 7c1b2f10-0012-4a11-9b00-000000000012
+name: portscan_then_bruteforce
+description: Reconnaissance followed by credential guessing from the same source
+level: critical
+correlation:
+  type: temporal_ordered
+  rules: [port_scan, ssh_bruteforce]
+  group-by: [source.ip]
+  timespan: 30m

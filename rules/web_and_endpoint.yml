@@ -1,0 +1,31 @@
+title: SQL Injection Probe In URL
+name: web_sqli_probe
+id: 7c1b2f10-0020-4a11-9b00-000000000020
+description: Common SQL injection tokens in the request URL
+level: high
+tags: [attack.initial_access, attack.t1190]
+detection:
+  selection:
+    event.category: web
+    url.original|contains:
+      - "' OR "
+      - "UNION SELECT"
+      - "%27%20OR%20"
+      - "UNION%20SELECT"
+  condition: selection
+---
+title: Encoded PowerShell Command
+name: powershell_encoded_command
+id: 7c1b2f10-0021-4a11-9b00-000000000021
+description: PowerShell launched with an encoded command (ECS fields process.name / process.command_line)
+level: high
+tags: [attack.execution, attack.t1059.001]
+detection:
+  selection:
+    process.name: powershell.exe
+    process.command_line|contains:
+      - " -enc "
+      - " -EncodedCommand "
+  filter:
+    process.parent.name: sccm.exe
+  condition: selection and not filter

@@ -1,0 +1,15 @@
+Nov 21 03:14:00 web01 sshd[4000]: Failed password for root from 203.0.113.50 port 40000 ssh2
+Nov 21 03:14:05 web01 sshd[4001]: Failed password for invalid user admin from 203.0.113.50 port 40001 ssh2
+Nov 21 03:14:10 web01 sshd[4002]: Failed password for invalid user ubuntu from 203.0.113.50 port 40002 ssh2
+Nov 21 03:14:15 web01 sshd[4003]: Failed password for invalid user test from 203.0.113.50 port 40003 ssh2
+Nov 21 03:14:20 web01 sshd[4004]: Failed password for root from 203.0.113.50 port 40004 ssh2
+Nov 21 03:14:25 web01 sshd[4005]: Failed password for invalid user admin from 203.0.113.50 port 40005 ssh2
+Nov 21 03:14:30 web01 sshd[4006]: Failed password for invalid user ubuntu from 203.0.113.50 port 40006 ssh2
+Nov 21 03:14:35 web01 sshd[4007]: Failed password for invalid user test from 203.0.113.50 port 40007 ssh2
+Nov 21 03:14:40 web01 sshd[4008]: Failed password for root from 203.0.113.50 port 40008 ssh2
+Nov 21 03:14:45 web01 sshd[4009]: Failed password for invalid user admin from 203.0.113.50 port 40009 ssh2
+Nov 21 03:14:50 web01 sshd[4010]: Failed password for invalid user ubuntu from 203.0.113.50 port 40010 ssh2
+Nov 21 03:14:55 web01 sshd[4011]: Failed password for invalid user test from 203.0.113.50 port 40011 ssh2
+Nov 21 03:15:00 web01 sshd[4012]: Failed password for root from 203.0.113.50 port 40012 ssh2
+Nov 21 03:15:05 web01 sshd[4013]: Failed password for invalid user admin from 203.0.113.50 port 40013 ssh2
+Nov 21 03:15:20 web01 sshd[4999]: Accepted password for root from 203.0.113.50 port 40100 ssh2

@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mini-siem"
+version = "0.1.0"
+description = "Mini SIEM: multi-source ingestion, ECS normalization, Sigma + correlation detection, threat intel, offline GeoIP, baselines, opt-in active response"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["pyyaml>=6.0"]
+
+[project.optional-dependencies]
+geoip = ["maxminddb>=2.4"]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+mini-siem = "mini_siem.cli:main"
+
+[tool.setuptools]
+packages = ["mini_siem", "mini_siem.parsers"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

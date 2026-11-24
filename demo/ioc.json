@@ -1,0 +1,8 @@
+{
+  "indicators": [
+    {"indicator_type": "ipv4-addr", "value": "203.0.113.66", "threat_name": "Demo-C2-Server", "source": "demo-feed"},
+    {"indicator_type": "domain-name", "value": "evil.example.net", "threat_name": "Demo-Phishing-Domain", "source": "demo-feed"},
+    {"indicator_type": "file-hash-sha256", "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "threat_name": "Demo-Dropper", "source": "demo-feed"},
+    {"indicator_type": "ipv4-addr", "value": "203.0.113.99", "threat_name": "Old-Botnet", "source": "demo-feed", "valid_until": "2020-01-01T00:00:00Z"}
+  ]
+}

@@ -1,0 +1,57 @@
+title: SSH Failed Login
+id: 7c1b2f10-0001-4a11-9b00-000000000001
+name: ssh_failed_login
+status: stable
+description: A failed SSH authentication attempt (building block for brute-force correlation)
+level: low
+tags: [attack.credential_access, attack.t1110]
+detection:
+  selection:
+    event.action: ssh_login
+    event.outcome: failure
+  condition: selection
+---
+title: SSH Successful Login
+id: 7c1b2f10-0002-4a11-9b00-000000000002
+name: ssh_success_login
+status: stable
+description: A successful SSH authentication
+level: informational
+detection:
+  selection:
+    event.action: ssh_login
+    event.outcome: success
+  condition: selection
+---
+# Sigma correlation: 10+ failed SSH logins from one source.ip within 5 minutes
+title: SSH Brute Force
+id: 7c1b2f10-0003-4a11-9b00-000000000003
+name: ssh_bruteforce
+description: Ten or more failed SSH logins from the same source IP within five minutes
+level: high
+tags: [attack.credential_access, attack.t1110.001]
+correlation:
+  type: event_count
+  rules:
+    - ssh_failed_login
+  group-by:
+    - source.ip
+  timespan: 5m
+  condition:
+    gte: 10
+---
+# Escalation: the brute force was followed by a successful login from the SAME source.ip
+title: SSH Brute Force Followed By Successful Login
+id: 7c1b2f10-0004-4a11-9b00-000000000004
+name: ssh_bruteforce_then_success
+description: Likely compromised account - successful SSH login after a brute-force burst from the same IP
+level: critical
+tags: [attack.initial_access, attack.t1078]
+correlation:
+  type: temporal_ordered
+  rules:
+    - ssh_bruteforce
+    - ssh_success_login
+  group-by:
+    - source.ip
+  timespan: 10m

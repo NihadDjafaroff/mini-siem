@@ -1,0 +1,6 @@
+Nov 20 09:00:00 web01 sshd[2001]: Accepted publickey for alice from 10.0.0.21 port 50122 ssh2
+Nov 20 09:47:00 web01 sshd[2101]: Accepted publickey for bob from 10.0.0.22 port 51122 ssh2
+Nov 20 10:34:00 web01 sshd[2201]: Accepted publickey for alice from 10.0.0.21 port 52122 ssh2
+Nov 20 10:03:00 web01 sshd[2311]: Failed password for bob from 10.0.0.22 port 51200 ssh2
+Nov 20 10:03:20 web01 sshd[2312]: Accepted password for bob from 10.0.0.22 port 51201 ssh2
+Nov 20 10:08:00 web01 sudo:    alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/apt update
